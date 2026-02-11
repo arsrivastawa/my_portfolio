@@ -5,8 +5,10 @@ const projects = [
   {
     title: "Crypto Matching Engine",
     tech: ["C++", "TCP/IP", "WebSocket"],
-    description: "Institutional-grade matching engine designed for high-frequency trading.",
+    description:
+      "Institutional-grade matching engine designed for high-frequency trading.",
     icon: Cpu,
+    github: "https://github.com/arsrivastawa/crypto-matching-engine",
     stats: [
       { label: "Throughput", value: "714k", unit: "orders/sec" },
       { label: "Median Latency", value: "0.01", unit: "ms" },
@@ -16,8 +18,10 @@ const projects = [
   {
     title: "ANPR System",
     tech: ["Python", "YOLOv8", "OpenCV", "React"],
-    description: "Real-time computer vision system for vehicle numberplate tracking.",
+    description:
+      "Real-time computer vision system for vehicle numberplate tracking.",
     icon: Camera,
+    github: "https://github.com/arsrivastawa/KAVACH",
     stats: [
       { label: "Detection Accuracy", value: "98%", unit: "accuracy" },
       { label: "CRUD Speed", value: "50%", unit: "faster" },
@@ -29,6 +33,7 @@ const projects = [
     tech: ["Node.js", "Prisma", "PostgreSQL", "MongoDB"],
     description: "Scalable backend architecture decoupling services for speed.",
     icon: Server,
+    github: "https://github.com/arsrivastawa/microservices-arch",
     stats: [
       { label: "Latency Reduction", value: "40%", unit: "faster" },
       { label: "Query Speed", value: "30%", unit: "improved queries" },
@@ -87,7 +92,7 @@ export const EngineeringLabs = () => {
                   <project.icon className="w-5 h-5" />
                 </div>
                 <a
-                  href="#"
+                  href={project.github}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Github className="w-5 h-5" />
@@ -115,11 +120,17 @@ export const EngineeringLabs = () => {
 
               <div className="grid grid-cols-3 gap-2">
                 {project.stats.map((stat) => (
-                  <div title={stat.label} key={stat.label} className="text-center p-2 rounded bg-muted/50">
+                  <div
+                    title={stat.label}
+                    key={stat.label}
+                    className="text-center p-2 rounded bg-muted/50"
+                  >
                     <div className="font-mono text-lg font-bold text-primary glow-text">
                       {stat.value}
                     </div>
-                    <div className="text-xs text-muted-foreground">{stat.unit}</div>
+                    <div className="text-xs text-muted-foreground">
+                      {stat.unit}
+                    </div>
                   </div>
                 ))}
               </div>
